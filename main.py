@@ -18,8 +18,10 @@ while True:
 
     for (x, y, w, h) in eyes:
         for(a,b,c,d) in faces:
+            #eyes between faces
             if(x > a and x < a+c):
-                if(y > b and y < b+d):
+                #eyes occur in upper half of face
+                if(y > b and y < b+d/2):
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     for(x,y,w,h) in faces:
