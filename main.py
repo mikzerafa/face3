@@ -17,7 +17,10 @@ while True:
     eyes = eyeCascade.detectMultiScale(gray, 1.1, 4)
 
     for (x, y, w, h) in eyes:
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        for(a,b,c,d) in faces:
+            if(x > a and x < a+c):
+                if(y > b and y < b+d):
+                    cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     for(x,y,w,h) in faces:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
